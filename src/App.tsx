@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
+// import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import words from "./data/wordList.json";
 import { Hangman } from "./components/Hangman";
 import { Header } from "./components/Header";
