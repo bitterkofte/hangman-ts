@@ -1,6 +1,18 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wdth,wght@112.5,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  user-select: none;
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  font-family: "Fredoka", sans-serif;
   line-height: 1.5;
+  font-size: 16px;
   font-weight: 400;
 
   color-scheme: light dark;
@@ -12,22 +24,119 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+button {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+}
 
 .app {
   max-width: 800px;
+  margin: auto;
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 2rem;
   align-items: center;
+  /* background: red; */
 }
 
+/* PIN Header */
+.header {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 2rem 0 0 0;
+  gap: 1rem;
+}
+.header .logo  {
+  width: 4rem;
+  /* height: 64px; */
+  -webkit-user-drag: none;
+}
+.header .title  {
+  font-weight: 600;
+  font-size: 2.4rem;
+}
+
+/* PIN Hangman */
 #Hangman {
   width: 200px;
 }
-
 .man-container .part,
 .gallows-container .stick {
-  stroke-width: 10px;
+  stroke-width: 0.5rem;
   fill: none;
   stroke: #ffffff;
+}
+
+/* PIN Word */
+.word {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.3rem;
+}
+.word .border {
+  width: 1rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 0.3rem solid white;
+}
+.word-letter {
+  font-weight: 500;
+}
+
+/* PIN LetterBoard */
+.letter-board {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.key-letter {
+  width: 4rem;
+  border: 0.1rem solid gray;
+  padding: 1rem;
+  text-align: center;
+  transition: all 100ms;
+}
+.key-letter:hover {
+  border-color: #fcbe03;
+  color: #fcbe03;
+  cursor: pointer;
+}
+.key-letter.present {
+  border-color: #00a060;
+  color: #00a060;
+}
+.key-letter.absent {
+  border-color: #b51d1a;
+  color: #b51d1a;
+}
+
+.key-letter:disabled,
+.key-letter:disabled:hover {
+  cursor: default;
+  border-color: gray;
+  color: rgb(102, 102, 102);
+}
+.key-letter.absent:disabled,
+.key-letter.absent:disabled:hover {
+  border-color: #b51d1a;
+  color: #b51d1a;
+}
+.key-letter.present:disabled,
+.key-letter.present:disabled:hover {
+  border-color: #00a060;
+  color: #00a060;
+}
+
+.key-letter:disabled:hover {
+  border-color: gray;
+  color: rgb(86, 86, 86);
 }
