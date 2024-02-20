@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 type WordProps = {
   word: string
   guessedLetters: string[]
@@ -13,13 +11,7 @@ export const Word = ({ word, guessedLetters }: WordProps) => {
     <div className="word">
       {word.split("").map((l, i) => (
         <span key={i} className="border">
-          <span
-            className="word-letter"
-            // style={{
-            //   // visibility: guessedLetters.includes(l) ? "visible" : "hidden",
-            //   // display: guessedLetters.includes(l) ? "inline" : "none",
-            // }}
-          >
+          <span className="word-letter">
             {doesInclude(l) ? l : <>&nbsp;</>}
           </span>
         </span>

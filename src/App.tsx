@@ -11,7 +11,7 @@ export const App = () => {
     return words[Math.floor(Math.random() * words.length)];
   });
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
-  const [gameStatus, setGameStatus] = useState<"playing" | "won" | "lost">("playing");
+  // const [gameStatus, setGameStatus] = useState<"playing" | "won" | "lost">("playing");
   const incorrectLetters = guessedLetters.filter((l) => !targetWord.includes(l));
 
   const isLoser = incorrectLetters.length >= 6;
@@ -35,12 +35,17 @@ export const App = () => {
   //   return () => document.removeEventListener("keypress", handler)
   // }, [guessedLetters])
 
+  const playAgain = () => {
+    setGuessedLetters([])
+    setTargetWord(words[Math.floor(Math.random() * words.length)])
+  }
+
   return (
     <div className="app">
       <Header />
       <p>{targetWord}</p>
-      <div>{gameStatus}</div>
-      {(isLoser || isWinner) && <ResultModal isLoser={isLoser} isWinner={isWinner} />}
+      {/* <div>{gameStatus}</div> */}
+      {(isLoser || isWinner) && <ResultModal isLoser={isLoser} isWinner={isWinner} playAgain={playAgain} />}
       <Hangman incorrectCount={incorrectLetters.length} />
       <Word word={targetWord} guessedLetters={guessedLetters} />
       <LetterBoard
